@@ -819,7 +819,7 @@ _fits_read_col
   Read elements from a column
 
  USAGE
-  status = _fits_read_col (fptr, colnum, firstrow, numrows, array
+  status = _fits_read_col (fptr, colnum, firstrow, numrows, array)
 
    Fits_File_Type fptr;
    Int_Type colnum, firstrow, numrows;

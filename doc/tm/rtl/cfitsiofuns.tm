@@ -505,7 +505,7 @@
 
 \function{_fits_read_col}
 \synopsis{Read elements from a column}
-\usage{status = _fits_read_col (fptr, colnum, firstrow, numrows, array}
+\usage{status = _fits_read_col (fptr, colnum, firstrow, numrows, array)}
 #v+
    Fits_File_Type fptr;
    Int_Type colnum, firstrow, numrows;
