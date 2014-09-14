@@ -5137,8 +5137,11 @@ $as_echo_n "checking for the slang library and header files ... " >&6; }
        jd_slang_inc_file=slang.h
     fi
 
-    if test X"$jd_slang_include_dir" = X
+    if test X"$jd_slang_include_dir" != X
     then
+      inc_and_lib_dirs="$jd_slang_include_dir,$jd_slang_library_dir"
+      jd_slang_include_dir=
+    else
       inc_and_lib_dirs="\
          $jd_prefix_incdir,$jd_prefix_libdir \
 	 /usr/local/slang/include,/usr/local/slang/lib \
@@ -5156,6 +5159,7 @@ $as_echo_n "checking for the slang library and header files ... " >&6; }
       then
         inc_and_lib_dirs="/include,/lib $inc_and_lib_dirs"
       fi
+    fi
 
       case "$host_os" in
          *darwin* )
@@ -5197,7 +5201,6 @@ $as_echo_n "checking for the slang library and header files ... " >&6; }
 	  break
 	fi
       done
-    fi
   fi
 
   if test X"$jd_slang_include_dir" != X -a X"$jd_slang_library_dir" != X
@@ -5395,8 +5398,11 @@ $as_echo_n "checking for the cfitsio library and header files fitsio.h... " >&6;
        jd_cfitsio_inc_file=cfitsio.h
     fi
 
-    if test X"$jd_cfitsio_include_dir" = X
+    if test X"$jd_cfitsio_include_dir" != X
     then
+      inc_and_lib_dirs="$jd_cfitsio_include_dir,$jd_cfitsio_library_dir"
+      jd_cfitsio_include_dir=
+    else
       inc_and_lib_dirs="\
          $jd_prefix_incdir,$jd_prefix_libdir \
 	 /usr/local/cfitsio/include,/usr/local/cfitsio/lib \
@@ -5414,6 +5420,7 @@ $as_echo_n "checking for the cfitsio library and header files fitsio.h... " >&6;
       then
         inc_and_lib_dirs="/include,/lib $inc_and_lib_dirs"
       fi
+    fi
 
       case "$host_os" in
          *darwin* )
@@ -5455,7 +5462,6 @@ $as_echo_n "checking for the cfitsio library and header files fitsio.h... " >&6;
 	  break
 	fi
       done
-    fi
   fi
 
   if test X"$jd_cfitsio_include_dir" != X -a X"$jd_cfitsio_library_dir" != X

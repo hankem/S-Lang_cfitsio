@@ -883,8 +883,12 @@ AC_DEFUN([JD_CHECK_FOR_LIBRARY], dnl#{{{
        jd_$1_inc_file=$1.h
     fi
 
-    if test X"$jd_$1_include_dir" = X
+    if test X"$jd_$1_include_dir" != X
     then
+      inc_and_lib_dirs="$jd_$1_include_dir,$jd_$1_library_dir"
+      jd_$1_include_dir= dnl# jd_$1_include_dir shall not be set unless $jd_$1_inc_file is found.
+
+    else
       inc_and_lib_dirs="\
          $jd_prefix_incdir,$jd_prefix_libdir \
 	 /usr/local/$1/include,/usr/local/$1/lib \
@@ -902,6 +906,7 @@ AC_DEFUN([JD_CHECK_FOR_LIBRARY], dnl#{{{
       then
         inc_and_lib_dirs="$3/include,$3/lib $inc_and_lib_dirs"
       fi
+    fi
 
       case "$host_os" in
          *darwin* )
@@ -943,7 +948,6 @@ AC_DEFUN([JD_CHECK_FOR_LIBRARY], dnl#{{{
 	  break
 	fi
       done
-    fi
   fi
 
   if test X"$jd_$1_include_dir" != X -a X"$jd_$1_library_dir" != X
